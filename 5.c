@@ -10,17 +10,17 @@ struct node{
 	struct node* left;
 	struct node* right;
 };
-struct node *Build123(void);
+struct node *BuildTree(void);
 struct node *newNode(int);
 struct node *insert(struct node* node,int data);
 void printTree(struct node*);
 main()
 {
-	struct node* root=Build123();
+	struct node* root=BuildTree();
 
 	printTree(root);
 }
-struct node *Build123(void)
+struct node *BuildTree(void)
 {
 	struct node* root=NULL;
 	root=insert(root,4);
@@ -34,9 +34,8 @@ void printTree(struct node* root)
 {
 	if(root!=NULL){
 		printTree(root->left);
-	//	printf("%d ",root->data);
-		printTree(root->right);
 		printf("%d ",root->data);
+		printTree(root->right);
 	}
 	
 }
