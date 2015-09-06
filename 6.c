@@ -11,16 +11,16 @@ struct node{
 	struct node* left;
 	struct node* right;
 };
-struct node *Build123(void);
+struct node *BuildTree(void);
 struct node *newNode(int);
 struct node *insert(struct node* node,int data);
 void printPostorder(struct node*);
 main()
 {
-	struct node* root=Build123();
+	struct node* root=BuildTree();
 	printPostorder(root);
 }
-struct node *Build123(void)
+struct node *BuildTree(void)
 {
 	struct node* root=NULL;
 	root=insert(root,4);
