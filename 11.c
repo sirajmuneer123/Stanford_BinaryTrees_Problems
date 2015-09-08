@@ -5,6 +5,8 @@ arranged in the same way. (Thanks to Julie Zelenski for suggesting this problem.
 */
 #include<stdio.h>
 #include<stdlib.h>
+# define TRUE 1
+# define FALSE 0
 struct node{
 	int data;
 	struct node* left;
@@ -12,36 +14,31 @@ struct node{
 };
 struct node* newNode(int data);
 struct node *insert(struct node*,int);
-struct node *BuildTree(void);
+struct node *BuildTree1(void);
+struct node *BuildTree2(void);
 void printTree(struct node*);
 int sameTree(struct node*,struct node*);
 main()
 {
-	struct node* tree1=BuildTree();
-	struct node* tree2=BuildTree();
+	struct node* tree1=BuildTree1();
+	struct node* tree2=BuildTree2();
 	int x=sameTree(tree1,tree2);
-	printf("re   %d\n",x);
-	printTree(tree);
+	if(x==TRUE)
+		printf("same tree\n");
+	else
+		printf("not same tree\n");
 }
 int sameTree(struct node* a,struct node* b)
 {
 	if(a==NULL && b==NULL)
-		return (1);
+		return (TRUE);
 	else if(a!=NULL && b!=NULL)
 		return (a->data == b->data && sameTree(a->left,b->left) &&sameTree(a->right,b->right));
 	else
-		return(0);
+		return(FALSE);
 	
 }
-void printTree(struct node* root)
-{
-	if(root!=NULL){
-		printTree(root->left);	
-		printf("%d ",root->data);
-		printTree(root->right);
-	}
-}
-struct node *BuildTree(void)
+struct node *BuildTree1(void)
 {
 	struct node* root=NULL;
 	root=insert(root,2);
@@ -49,6 +46,15 @@ struct node *BuildTree(void)
 	root=insert(root,3);
 	return(root);
 }
+struct node *BuildTree2(void)
+{
+        struct node* root=NULL;
+        root=insert(root,2);
+        root=insert(root,1);
+        root=insert(root,3);
+       return(root);
+}
+
 struct node *insert(struct node* root,int data)
 {
 	if(root==NULL)
