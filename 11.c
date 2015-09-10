@@ -22,8 +22,8 @@ main()
 {
 	struct node* tree1=BuildTree1();
 	struct node* tree2=BuildTree2();
-	int x=sameTree(tree1,tree2);
-	if(x==TRUE)
+	int type=sameTree(tree1,tree2);
+	if(type==TRUE)
 		printf("same tree\n");
 	else
 		printf("not same tree\n");
