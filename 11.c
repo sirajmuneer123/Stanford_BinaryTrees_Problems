@@ -3,6 +3,7 @@
 Given two binary trees, return true if they are structurally identical -- they are made of nodes with the same values
 arranged in the same way. (Thanks to Julie Zelenski for suggesting this problem.)
 */
+
 #include<stdio.h>
 #include<stdlib.h>
 # define TRUE 1
